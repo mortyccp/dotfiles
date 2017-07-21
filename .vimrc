@@ -2,7 +2,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
 
+" fuzzy search
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+endif
+
+" git integration
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
+
+let g:gitgutter_sign_column_always=1
+set updatetime=250
 
 " style
 set colorcolumn=80
@@ -43,4 +54,10 @@ set hlsearch
 
 " mouse
 set mouse=a
+
+" key
+let mapleader = "\<Space>"
+nnoremap <Leader><Leader> :set hlsearch!<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
