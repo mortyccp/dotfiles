@@ -1,0 +1,46 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+" style
+set colorcolumn=80
+set number
+set ruler
+set showcmd
+set wildmenu
+set laststatus=2
+set cursorline
+set list listchars=tab:>-,trail:.
+set background=dark
+syntax enable
+colorscheme solarized
+
+" editing
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set encoding=utf-8
+set hidden
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set smarttab
+set scrolloff=10
+set ttimeout
+set ttimeoutlen=100
+set noswapfile
+
+" clipboard
+set clipboard=unnamed,unnamedplus
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" mouse
+set mouse=a
+
