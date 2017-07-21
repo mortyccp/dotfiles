@@ -10,6 +10,8 @@
 	<integer>1</integer>
 	<key>Default Bookmark Guid</key>
 	<string>8FC70A1D-0DFC-4001-862E-A60988C53F46</string>
+	<key>JobName</key>
+	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -47,10 +49,17 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 139 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>736 158 796 473 0 0 1920 1057 </string>
+	<string>736 343 770 381 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>492 16 1214 843 0 0 1920 1057 </string>
+	<string>633 73 1207 843 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>894 140 570 452 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -823,7 +832,11 @@
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>522302978.83665103</real>
 	<key>OnlyWhenMoreTabs</key>
-	<true/>
+	<false/>
+	<key>OpenArrangementAtStartup</key>
+	<false/>
+	<key>OpenNoWindowsAtStartup</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -858,7 +871,9 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~</string>
+	<string>/Users/mortychoi</string>
+	<key>PromptOnQuit</key>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>SUEnableAutomaticChecks</key>
@@ -873,8 +888,14 @@
 	<date>2017-07-21T04:09:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowBookmarkName</key>
+	<true/>
+	<key>SmartPlacement</key>
+	<false/>
 	<key>TabStyle</key>
-	<integer>0</integer>
+	<integer>1</integer>
+	<key>WindowNumber</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>3.0.15</string>
 </dict>
