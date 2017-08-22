@@ -1,3 +1,5 @@
+export VISUAL='vim'
+export EDITOR="$VISUAL"
 export PS1="> "
 export PS2="$ "
 export CLICOLOR=1
