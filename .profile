@@ -3,7 +3,6 @@ export EDITOR="$VISUAL"
 export PS1="> "
 export PS2="$ "
 export CLICOLOR=1
-export LC_ALL='en_US'
 
 if [ -d "$HOME/.dotfiles.git" ]; then
   alias dotfiles='git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME"'
