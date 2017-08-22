@@ -26,9 +26,18 @@ if [ -d "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -d "$HOME/.cargo/bin" ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 if [ -x "/usr/libexec/java_home" ]; then
   JAVA_HOME="$(/usr/libexec/java_home)"
   export JAVA_HOME
+fi
+
+if [ -d "$HOME/go/bin" ]; then
+  export GOPATH="$HOME/go"
+  export PATH="$HOME/go/bin:$PATH"
 fi
 
 if [ -d "$HOME/android-sdk-macosx" ]; then
