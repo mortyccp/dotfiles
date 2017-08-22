@@ -13,6 +13,10 @@ if [ -x "$(command -v exa)" ]; then
   alias ls=exa
 fi
 
+if [ -x "$(command -v rg)" ]; then
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --smart-case --glob "!.git/*"'
+fi
+
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
