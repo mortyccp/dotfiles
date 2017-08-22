@@ -1,3 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
@@ -7,41 +10,28 @@ if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 endif
 
-" git integration
-Plug 'airblade/vim-gitgutter'
-
 call plug#end()
 
-let g:gitgutter_sign_column_always=1
-set updatetime=250
-
 " style
-set colorcolumn=80
 set number
-set ruler
-set showcmd
-set wildmenu
 set laststatus=2
 set cursorline
 set list listchars=tab:>-,trail:.
-set background=dark
+" colorscheme solarized
+let g:solarized_termcolors=256
 syntax enable
+set background=dark
 colorscheme solarized
 
 " editing
 set autoindent
 set autoread
-set backspace=indent,eol,start
 set encoding=utf-8
 set hidden
-set shiftwidth=2
-set softtabstop=2
-set expandtab
+set expandtab shiftwidth=2 softtabstop=2
 set smarttab
-set scrolloff=10
-set ttimeout
-set ttimeoutlen=100
 set noswapfile
+set backupcopy=yes
 
 " clipboard
 set clipboard=unnamed,unnamedplus
@@ -49,11 +39,7 @@ set clipboard=unnamed,unnamedplus
 " search
 set ignorecase
 set smartcase
-set incsearch
 set hlsearch
-
-" mouse
-set mouse=a
 
 " key
 let mapleader = "\<Space>"
