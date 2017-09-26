@@ -3,6 +3,11 @@ source $VIMRUNTIME/defaults.vim
 
 call plug#begin('~/.vim/plugged')
 
+" languages
+Plug 'elixir-lang/vim-elixir'
+Plug 'dart-lang/dart-vim-plugin'
+
+" colorscheme
 Plug 'altercation/vim-colors-solarized'
 
 " fuzzy search
@@ -18,7 +23,6 @@ set laststatus=2
 set cursorline
 set list listchars=tab:>-,trail:.
 " colorscheme solarized
-let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
@@ -28,7 +32,6 @@ set autoindent
 set autoread
 set encoding=utf-8
 set hidden
-set expandtab shiftwidth=2 softtabstop=2
 set smarttab
 set noswapfile
 set backupcopy=yes
@@ -55,3 +58,5 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+" indentation
+autocmd FileType javascript,json,ruby,sh setlocal expandtab shiftwidth=2 softtabstop=2
