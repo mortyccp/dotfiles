@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 " languages
 Plug 'elixir-lang/vim-elixir'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " colorscheme
 Plug 'altercation/vim-colors-solarized'
@@ -60,3 +61,4 @@ command! -bang -nargs=* Rg
 
 " indentation
 autocmd FileType javascript,json,ruby,sh setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType py setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
