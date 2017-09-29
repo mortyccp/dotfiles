@@ -49,7 +49,9 @@ if [ -d "$HOME/android-sdk-macosx" ]; then
 fi
 
 # golang
-if [ -d "$HOME/go/bin" ]; then
+if [ -x "$(command -v go)" ]; then
   export GOPATH="$HOME/go"
   export PATH="$HOME/go/bin:$PATH"
+  alias gopwd='export GOPATH=`pwd`'
+  alias gohome='export GOPATH="$HOME/go"'
 fi
