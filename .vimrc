@@ -7,6 +7,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'elixir-lang/vim-elixir'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components'
 
 " colorscheme
 Plug 'altercation/vim-colors-solarized'
@@ -18,12 +21,14 @@ endif
 
 call plug#end()
 
+" mxw/vim-jsx
+let g:jsx_ext_required = 0
+
 " style
 set number
 set laststatus=2
 set cursorline
 set list listchars=tab:>-,trail:.
-" colorscheme solarized
 syntax enable
 set background=dark
 colorscheme solarized
