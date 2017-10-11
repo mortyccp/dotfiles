@@ -5,6 +5,15 @@ export PS2="\[\033[0;34m\]> \[\e[00m\]"
 export LC_ALL='en_US.UTF-8'
 export CLICOLOR=1
 
+# dev
+if [ -d "$HOME/dev" ]; then
+  DEVPATH="$HOME/dev"
+  GITUSER="$(git config --global user.name)"
+  DEVLOCAL="$DEVPATH/src/github.com/$GITUSER"
+  alias dev='cd $DEVLOCAL'
+fi
+
+# dotfiles
 if [ -d "$HOME/.dotfiles.git" ]; then
   alias dotfiles='git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME"'
 fi
@@ -12,6 +21,7 @@ fi
 # exa
 if [ -x "$(command -v exa)" ]; then
   alias ls=exa
+  alias tree='exa --tree'
 fi
 
 # fzf
@@ -50,8 +60,6 @@ fi
 
 # golang
 if [ -x "$(command -v go)" ]; then
-  export GOPATH="$HOME/go"
-  export PATH="$HOME/go/bin:$PATH"
-  alias gopwd='export GOPATH=`pwd`'
-  alias gohome='export GOPATH="$HOME/go"'
+  export GOPATH="$DEVPATH"
+  export PATH="$GOPATH/bin:$PATH"
 fi
