@@ -7,9 +7,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'elixir-lang/vim-elixir'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " colorscheme
 Plug 'altercation/vim-colors-solarized'
@@ -42,6 +43,9 @@ set smarttab
 set noswapfile
 set backupcopy=yes
 
+" key
+let mapleader = "\<Space>"
+
 " clipboard
 set clipboard=unnamed,unnamedplus
 
@@ -49,12 +53,18 @@ set clipboard=unnamed,unnamedplus
 set ignorecase
 set smartcase
 set hlsearch
-
-" key
-let mapleader = "\<Space>"
 nnoremap <Leader><Leader> :set hlsearch!<CR>
+
+" navigation
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
+
+" quickfix
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+
+" completion
+set completeopt-=preview
 
 " command
 command! -bang -nargs=* Rg
@@ -64,6 +74,26 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" indentation
-autocmd FileType javascript,json,ruby,sh setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType py setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
+" filetypes
+au FileType javascript,json,ruby,sh setlocal expandtab shiftwidth=2 softtabstop=2
+au FileType py setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
+
+" go
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_auto_sameids = 1
+au FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 nolist autowrite
+au FileType go nmap <Leader>c :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>i <Plug>(go-info)
