@@ -9,11 +9,6 @@ export CLICOLOR=1
 if [ -d "$HOME/dev" ]; then
   export DEVPATH="$HOME/dev"
   export CDPATH=".:$DEVPATH/src/github.com:$DEVPATH/src"
-  export DEVSELF="$DEVPATH/src/github.com/$(git config --global user.name)"
-  export DEVWORK="$DEVPATH/src/navicat.com/navicat"
-  alias dev='cd $DEVPATH'
-  alias self='cd $DEVSELF'
-  alias work='cd $DEVWORK'
 fi
 
 # dotfiles
