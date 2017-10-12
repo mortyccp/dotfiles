@@ -11,11 +11,21 @@ if [ -d "$HOME/dev" ]; then
   GITUSER="$(git config --global user.name)"
   DEVLOCAL="$DEVPATH/src/github.com/$GITUSER"
   alias dev='cd $DEVLOCAL'
+  export CDPATH=".:$DEVPATH/src/github.com:$DEVPATH/src"
 fi
 
 # dotfiles
 if [ -d "$HOME/.dotfiles.git" ]; then
   alias dotfiles='git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME"'
+fi
+
+# brew specific
+if [ -x "$(command -v brew)" ]; then
+  # bash specific
+  if [ "$(basename "$SHELL")" = 'bash' ]; then
+    # enable bash completion
+    [ -f "$(brew --prefix)/etc/bash_completion" ] && . "$(brew --prefix)/etc/bash_completion"
+  fi
 fi
 
 # exa
