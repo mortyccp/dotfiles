@@ -7,11 +7,13 @@ export CLICOLOR=1
 
 # dev
 if [ -d "$HOME/dev" ]; then
-  DEVPATH="$HOME/dev"
-  GITUSER="$(git config --global user.name)"
-  DEVLOCAL="$DEVPATH/src/github.com/$GITUSER"
-  alias dev='cd $DEVLOCAL'
+  export DEVPATH="$HOME/dev"
   export CDPATH=".:$DEVPATH/src/github.com:$DEVPATH/src"
+  export DEVSELF="$DEVPATH/src/github.com/$(git config --global user.name)"
+  export DEVWORK="$DEVPATH/src/navicat.com/navicat"
+  alias dev='cd $DEVPATH'
+  alias self='cd $DEVSELF'
+  alias work='cd $DEVWORK'
 fi
 
 # dotfiles
@@ -57,8 +59,7 @@ fi
 
 # java
 if [ -x "/usr/libexec/java_home" ]; then
-  JAVA_HOME="$(/usr/libexec/java_home)"
-  export JAVA_HOME
+  export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
 
 # android
