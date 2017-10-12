@@ -17,6 +17,7 @@ fi
 # dotfiles
 if [ -d "$HOME/.dotfiles.git" ]; then
   alias dotfiles='git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME"'
+  complete -o bashdefault -o default -o nospace -F _git dotfiles
 fi
 
 # brew specific
