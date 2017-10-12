@@ -8,7 +8,7 @@ export CLICOLOR=1
 # dev
 if [ -d "$HOME/dev" ]; then
   export DEVPATH="$HOME/dev"
-  export CDPATH=".:$DEVPATH/src/github.com:$DEVPATH/src"
+  alias goto='cd $DEVPATH/src/$(find $DEVPATH/src -type d -depth 3 | sed "s|$DEVPATH/src/||" | fzf)'
 fi
 
 # dotfiles
