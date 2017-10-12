@@ -68,6 +68,6 @@ fi
 if [ -x "$(command -v go)" ]; then
   export GOPATH="$DEVPATH"
   export PATH="$GOPATH/bin:$PATH"
-  alias gopwd='export GOPATH=$DEVPATH:${PWD%src/*}; echo "set GOPATH to $GOPATH"'
+  alias gopwd='export GOPATH=$DEVPATH:`pwd`'
   alias gohome='export GOPATH=$DEVPATH'
 fi
