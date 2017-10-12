@@ -9,6 +9,9 @@ export CLICOLOR=1
 if [ -d "$HOME/dev" ]; then
   export DEVPATH="$HOME/dev"
   alias goto='cd $DEVPATH/src/$(find $DEVPATH/src -type d -depth 3 | sed "s|$DEVPATH/src/||" | fzf)'
+  function goclone() {
+    git clone "https://$1.git" $DEVPATH/src/$1
+  }
 fi
 
 # dotfiles
