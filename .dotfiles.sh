@@ -39,4 +39,5 @@ if [ "$?" -ne 0 ]; then
     mv "$oldpath" "$newpath"
   done
   dotfiles checkout -b master origin/master
+  dotfiles config --local core.excludesfile ~/.exclude
 fi

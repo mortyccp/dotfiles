@@ -1,5 +1,5 @@
 *
-!.gitignore
+!.exclude
 !.dotfiles.sh
 !.bash_profile
 !.bashrc
