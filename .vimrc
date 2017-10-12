@@ -59,6 +59,16 @@ nnoremap <Leader><Leader> :set hlsearch!<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
+" split
+set splitbelow
+set splitright
+
+" windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " quickfix
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
