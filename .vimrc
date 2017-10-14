@@ -101,7 +101,6 @@ endfunction
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
-let g:go_auto_sameids = 1
 au FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 nolist autowrite
 au FileType go nmap <Leader>c :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <Leader>r <Plug>(go-run)
