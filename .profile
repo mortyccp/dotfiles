@@ -8,11 +8,7 @@ export CLICOLOR=1
 # dev
 if [ -d "$HOME/dev" ]; then
   export DEVPATH="$HOME/dev"
-  if [ -x "$(command -v fd)" ]; then
-    alias goto='cd $DEVPATH/src && cd $(fd -t d -d 3 | fzf || echo -)'
-  else
-    alias goto='cd $DEVPATH/src && cd $(find . -type d -maxdepth 3 | fzf || echo -)'
-  fi
+  alias goto='cd $DEVPATH/src && cd $(find . -type d -maxdepth 3 | sed "s|./||" | fzf || echo -) > /dev/null'
   goclone() {
     if [ -z "$1" ];  then
       echo "No repository url supplied"
