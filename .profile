@@ -41,7 +41,7 @@ fi
 
 # fzf
 if [ -x "$(command -v rg)" ]; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --smart-case --glob "!.git/*"'
+  export FZF_DEFAULT_COMMAND='rg --files --follow --smart-case --glob "!.git/*"'
 fi
 
 # nvm
