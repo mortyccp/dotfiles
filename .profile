@@ -76,6 +76,6 @@ fi
 if [ -x "$(command -v go)" ]; then
   export GOPATH="$DEVPATH"
   export PATH="$GOPATH/bin:$PATH"
-  alias gopwd='export GOPATH=$DEVPATH:`pwd`'
+  alias gopwd='export GOPATH=`pwd`'
   alias gohome='export GOPATH=$DEVPATH'
 fi
