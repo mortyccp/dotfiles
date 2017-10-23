@@ -41,6 +41,9 @@ set autoread
 set encoding=utf-8
 set hidden
 set smarttab
+set expandtab
+set shiftwidth=4
+set softtabstop=4
 set noswapfile
 set backupcopy=yes
 
