@@ -91,6 +91,7 @@ command! -bang -nargs=* Rg
 " filetypes
 au FileType javascript,json,ruby,sh setlocal expandtab shiftwidth=2 softtabstop=2
 au FileType py setlocal expandtab autoindent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
+au FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
 
 " go
 " run :GoBuild or :GoTestCompile based on the go file
