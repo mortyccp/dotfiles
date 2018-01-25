@@ -51,7 +51,7 @@ set backupcopy=yes
 let mapleader = "\<Space>"
 
 " clipboard
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamed
 
 " search
 set ignorecase
