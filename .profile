@@ -4,6 +4,7 @@ export PS1="\[\033[0;34m\]$ \[\e[00m\]"
 export PS2="\[\033[0;34m\]> \[\e[00m\]"
 export LC_ALL='en_US.UTF-8'
 export CLICOLOR=1
+set -o vi
 
 # dev
 if [ -d "$HOME/dev" ]; then
