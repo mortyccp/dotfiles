@@ -17,8 +17,6 @@ set ttimeout ttimeoutlen=100
 set wildmenu
 
 " responsiveness
-set nocursorline
-set nocursorcolumn
 set lazyredraw
 set synmaxcol=120
 
