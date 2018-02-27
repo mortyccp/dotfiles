@@ -2,6 +2,9 @@ let g:is_posix=1
 
 call plug#begin('~/.vim/plugged')
 
+" languages
+Plug 'fatih/vim-go'
+
 " fuzzy search
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
