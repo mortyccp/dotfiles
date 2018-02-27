@@ -59,22 +59,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-function! s:ShellTemplate()
-  call append(0, "#!/bin/sh')
-  call append(1, 'set -eu')
-endfunction
-
 " file types
 augroup MyFileType
   autocmd!
   autocmd BufRead,BufNewFile Podfile,*.podspec set filetype=ruby
   autocmd BufRead,BufNewFile *.gradle set filetype=groovy
-augroup END
-
-" templates
-augroup MyTemplate
-  autocmd!
-  autocmd BufNewFile *.sh call s:ShellTemplate()
 augroup END
 
 " indentation
