@@ -1,11 +1,26 @@
 let g:is_posix=1
 
 call plug#begin('~/.vim/plugged')
+
 " fuzzy search
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 endif
+
+" lint
+Plug 'w0rp/ale'
+
 call plug#end()
+
+" ALE
+let g:ale_fix_on_save=1
+let g:ale_fixers={}
+let g:ale_fixers['go']=['gofmt', 'goimports']
+let g:ale_fixers['javascript']=['prettier']
+let g:ale_fixers['typescript']=['prettier']
+let g:ale_javascript_prettier_use_local_config=1
+let g:ale_lint_on_insert_leave=1
+let g:ale_lint_on_text_changed='never'
 
 " style
 set laststatus=2
