@@ -30,35 +30,39 @@ set laststatus=2
 set list listchars=tab:>-,trail:.
 set number
 set ruler
-set showcmd
-set ttimeout ttimeoutlen=100
+
+" command completion
 set wildmenu
+set wildmode=longest:full,full
 
 " responsiveness
 set lazyredraw
-set synmaxcol=120
 
 " editing
 set autoindent
 set autoread
 set backspace=indent,eol,start
+" force vim not to rename when saving file
+" since renaming may break some file wathcing programs e.g. webpack
 set backupcopy=yes
-set encoding=utf-8
 set hidden
 set noswapfile
 set scrolloff=5
+set nofoldenable
+
+" indentation
+set expandtab shiftwidth=2 softtabstop=2
 
 " clipboard
-set clipboard=unnamed
+set clipboard+=unnamed
 
 " mouse
 set mouse=a
 
 " search
 set hlsearch
-set ignorecase
+set ignorecase smartcase
 set incsearch
-set smartcase
 
 " split
 set splitbelow
@@ -68,29 +72,29 @@ set splitright
 set completeopt-=preview
 
 " mapping
-nnoremap Y y$
-nnoremap <Space><Space> :set hlsearch!<CR>
-nnoremap <Space>f :Files<CR>
-nnoremap <Space>b :Buffers<CR>
+let mapleader = "\<Space>"
+nnoremap <Leader><Leader> :set hlsearch!<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" file types
-augroup MyFileType
+" additional file types
+augroup AdditionalFileTypes
   autocmd!
   autocmd BufRead,BufNewFile Podfile,*.podspec set filetype=ruby
   autocmd BufRead,BufNewFile *.gradle set filetype=groovy
 augroup END
 
-" indentation
-augroup MyIndentation
+" file type extras
+augroup Indentation
   autocmd!
   autocmd FileType
-    \ go
-    \ setlocal noexpandtab shiftwidth=4 tabstop=4
+        \ go
+        \ setlocal noexpandtab nolist shiftwidth=4 tabstop=4
   autocmd FileType
-    \ css,vim,html,javascript,json,ruby,sh,yaml
-    \ setlocal expandtab shiftwidth=2 softtabstop=2
+        \ java
+        \ setlocal expandtab nolist shiftwidth=4 tabstop=4
 augroup END
