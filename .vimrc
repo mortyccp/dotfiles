@@ -97,4 +97,7 @@ augroup Indentation
   autocmd FileType
         \ java
         \ setlocal expandtab nolist shiftwidth=4 tabstop=4
+  autocmd FileType
+        \ gitcommit,text,markdown
+        \ setlocal spell spelllang=en_us
 augroup END
