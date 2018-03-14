@@ -45,32 +45,15 @@ if [ -x "$(command -v rg)" ]; then
   export FZF_DEFAULT_COMMAND='rg --files --follow --smart-case --glob "!.git/*"'
 fi
 
-# nvm
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-fi
-
-# rbenv
-if [ -d "$HOME/.rbenv" ]; then
-  eval "$(rbenv init -)"
+# asdf
+if [ -d "$HOME/.asdf" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  . "$HOME/.asdf/completions/asdf.bash"
 fi
 
 # rust
 if [ -d "$HOME/.cargo/bin" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-# java
-if [ -x "/usr/libexec/java_home" ]; then
-  export JAVA_HOME="$(/usr/libexec/java_home)"
-fi
-
-# android
-if [ -d "$HOME/android-sdk-macosx" ]; then
-  export ANDROID_HOME="$HOME/android-sdk-macosx"
-  export ANDROID_SDK="$ANDROID_HOME"
-  export PATH="$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH"
 fi
 
 # golang
@@ -80,3 +63,11 @@ if [ -x "$(command -v go)" ]; then
   alias gopwd='export GOPATH=`pwd`'
   alias gohome='export GOPATH=$DEVPATH'
 fi
+
+# android
+if [ -d "$HOME/android-sdk-macosx" ]; then
+  export ANDROID_HOME="$HOME/android-sdk-macosx"
+  export ANDROID_SDK="$ANDROID_HOME"
+  export PATH="$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH"
+fi
+
