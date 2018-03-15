@@ -1,7 +1,0 @@
-*
-!.exclude
-!.dotfiles.sh
-!.bash_profile
-!.bashrc
-!.profile
-!.vimrc
