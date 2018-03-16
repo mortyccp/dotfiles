@@ -104,7 +104,7 @@ augroup MyFileTypeExtras
   autocmd!
   autocmd FileType
         \ go
-        \ setlocal noexpandtab shiftwidth=4 tabstop=4
+        \ setlocal nolist noexpandtab shiftwidth=4 tabstop=4
   autocmd FileType
         \ java
         \ setlocal expandtab shiftwidth=4 softtabstop=4
