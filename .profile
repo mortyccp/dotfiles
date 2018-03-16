@@ -1,3 +1,5 @@
+# shellcheck source=/dev/null
+
 export VISUAL='vim'
 export EDITOR="$VISUAL"
 export PS1='$ '
