@@ -10,6 +10,7 @@ set -o vi
 # gotfiles
 if [ -d "$HOME/.gotfiles.git" ]; then
   alias gotfiles='git --git-dir="$HOME/.gotfiles.git"'
+  complete -o bashdefault -o default -o nospace -F _git gotfiles
 fi
 
 # brew
