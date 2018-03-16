@@ -43,4 +43,5 @@ if [ -d "$HOME/go" ]; then
   if [ -d "$HOME/go/bin" ]; then
     export PATH="HOME/go/bin:$PATH"
   fi
+  alias goto='cd $GOPATH/src && cd $(find . -type d -maxdepth 3 | sed "s|./||" | fzf || echo -) > /dev/null'
 fi
