@@ -13,13 +13,11 @@ let g:ale_fixers['scss']=['prettier']
 let g:ale_lint_on_text_changed='never'
 
 " Activate plugins in other locations
-if isdirectory('/usr/local/opt/fzf')
-  set runtimepath+=/usr/local/opt/fzf
-endif
+set runtimepath+=/usr/local/opt/fzf
 
 " Activate plugins distributed with vim
-packadd matchit
-packadd justify
+packadd! matchit
+packadd! justify
 
 " Declare plugins
 if exists('*minpac#init')
