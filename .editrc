@@ -1,1 +1,4 @@
+# Enable Vi editing mode
 bind -v
+# Enable tab completion
+bind \\t rl_complete
