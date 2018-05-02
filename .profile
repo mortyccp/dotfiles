@@ -5,7 +5,6 @@ export EDITOR="$VISUAL"
 export PS1='$ '
 export PS2='> '
 export LC_ALL='en_US.UTF-8'
-set -o vi
 
 # gotfiles
 if [ -d "$HOME/.gotfiles.git" ]; then
