@@ -2,8 +2,10 @@
 
 export VISUAL='vim'
 export EDITOR="$VISUAL"
-export PS1='$ '
-export PS2='> '
+# shellcheck disable=SC2155,SC1117
+export PS1="\[$(tput bold)\]$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+# shellcheck disable=SC2155,SC1117
+export PS2="\[$(tput bold)\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export LC_ALL='en_US.UTF-8'
 
 # gotfiles
@@ -43,4 +45,9 @@ if [ -d "$HOME/go" ]; then
     export PATH="$HOME/go/bin:$PATH"
   fi
   alias goto='cd $GOPATH/src && cd $(find . -type d -maxdepth 3 | sed "s|./||" | fzf || echo -) > /dev/null'
+fi
+
+#rust
+if [ -d "$HOME/.cargo" ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
 fi
