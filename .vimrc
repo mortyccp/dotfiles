@@ -3,8 +3,6 @@ let g:is_posix=1
 
 " ALE
 let g:ale_fix_on_save=1
-let g:ale_javascript_prettier_use_local_config=1
-let g:ale_lint_on_text_changed='never'
 let g:ale_fixers={}
 let g:ale_fixers['shell']=['shellcheck']
 let g:ale_fixers['go']=['gofmt']
@@ -13,6 +11,10 @@ let g:ale_fixers['javascript']=['prettier']
 let g:ale_fixers['typescript']=['prettier']
 let g:ale_fixers['css']=['prettier']
 let g:ale_fixers['scss']=['prettier']
+let g:ale_lint_on_text_changed='never'
+let g:ale_linters={}
+let g:ale_linters['go']=['gofmt', 'golint', 'govet', 'golangserver']
+let g:ale_completion_enabled=1
 
 " Activate plugins in other locations
 set runtimepath+=/usr/local/opt/fzf
@@ -73,6 +75,7 @@ let mapleader=' '
 nnoremap Y y$
 nnoremap <Space> <Nop>
 nnoremap <Leader><Space> :set hlsearch!<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Commands
