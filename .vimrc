@@ -14,6 +14,7 @@ let g:ale_fixers['scss']=['prettier']
 let g:ale_lint_on_text_changed='never'
 let g:ale_linters={}
 let g:ale_linters['go']=['gofmt', 'golint', 'govet', 'golangserver']
+let g:ale_linters['typescript']=['tsserver', 'tslint']
 let g:ale_completion_enabled=1
 
 " Activate plugins in other locations
@@ -85,7 +86,7 @@ command! -nargs=1 Tabs   execute "setlocal tabstop=" . <args> . " shiftwidth=" .
 " File type extras
 augroup MyFileTypeExtras
   autocmd!
-  autocmd BufRead,BufNewFile *ts set filetype=typescript
+  autocmd BufRead,BufNewFile *ts,*.tsx set filetype=typescript
   autocmd FileType go setlocal nolist
   autocmd FileType gitcommit,text,markdown setlocal spell spelllang=en_us
 augroup END
