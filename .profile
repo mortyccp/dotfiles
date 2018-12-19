@@ -25,6 +25,11 @@ if [ -x "$(command -v brew)" ]; then
   fi
 fi
 
+# flutter
+if [ -d "$HOME/flutter" ]; then
+  export PATH="$HOME/flutter/bin:$PATH"
+fi
+
 # fzf
 if [ -x "$(command -v fd)" ]; then
   export FZF_DEFAULT_COMMAND='fd --type file --hidden'
@@ -42,18 +47,11 @@ fi
 # golang
 if [ -d "$HOME/go" ]; then
   export GOPATH="$HOME/go"
-  if [ -d "$HOME/go/bin" ]; then
-    export PATH="$HOME/go/bin:$PATH"
-  fi
+  export PATH="$HOME/go/bin:$PATH"
   alias goto='cd $GOPATH/src && cd $(find . -type d -maxdepth 3 | sed "s|./||" | fzf || echo -) > /dev/null'
 fi
 
 # rust
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-# flutter
-if [ -d "$HOME/flutter" ]; then
-  export PATH="$HOME/flutter/bin:$PATH"
 fi
