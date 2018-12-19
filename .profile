@@ -1,10 +1,7 @@
-# shellcheck source=/dev/null
 
 export VISUAL='vim'
 export EDITOR="$VISUAL"
-# shellcheck disable=SC2155,SC1117
 export PS1="\[$(tput bold)\]$\[$(tput sgr0)\] \[$(tput sgr0)\]"
-# shellcheck disable=SC2155,SC1117
 export PS2="\[$(tput bold)\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export LC_ALL='en_US.UTF-8'
 
