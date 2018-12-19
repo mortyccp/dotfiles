@@ -10,11 +10,22 @@ export PS1="\[$(tput bold)\]$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export PS2="\[$(tput bold)\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export LC_ALL='en_US.UTF-8'
 
-# gotfiles
-if [ -d "$HOME/.gotfiles.git" ]; then
-  alias gotfiles='git --git-dir="$HOME/.gotfiles.git"'
-  complete -o bashdefault -o default -o nospace -F _git gotfiles
-fi
+set_git_dir_and_git_work_tree() {
+  if [ "$PWD" = "$HOME" ]; then
+    GIT_DIR="$HOME/.gotfiles.git"
+    export GIT_DIR
+    GIT_WORK_TREE="$HOME"
+    export GIT_WORK_TREE
+  else
+    unset GIT_DIR
+    unset GIT_WORK_TREE
+  fi
+}
+
+cd() {
+  builtin cd "$@"
+  set_git_dir_and_git_work_tree
+}
 
 # brew
 if [ -x "$(command -v brew)" ]; then
@@ -55,3 +66,5 @@ fi
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+set_git_dir_and_git_work_tree
