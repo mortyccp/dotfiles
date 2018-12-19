@@ -32,12 +32,6 @@ elif [ -x "$(command -v ag)" ]; then
   export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
 fi
 
-# asdf
-if [ -d "$HOME/.asdf" ]; then
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
-fi
-
 # golang
 if [ -d "$HOME/go" ]; then
   export GOPATH="$HOME/go"
@@ -47,7 +41,12 @@ if [ -d "$HOME/go" ]; then
   alias goto='cd $GOPATH/src && cd $(find . -type d -maxdepth 3 | sed "s|./||" | fzf || echo -) > /dev/null'
 fi
 
-#rust
+# rust
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# flutter
+if [ -d "$HOME/flutter" ]; then
+  export PATH="$HOME/flutter/bin:$PATH"
 fi
