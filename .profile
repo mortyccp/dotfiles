@@ -34,6 +34,11 @@ elif [ -x "$(command -v ag)" ]; then
   export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
 fi
 
+# gem
+if [ -x "$(command -v gem)" ]; then
+  export PATH="$(gem env gemdir)/bin:$PATH"
+fi
+
 # golang
 if [ -d "$HOME/go" ]; then
   export GOPATH="$HOME/go"
