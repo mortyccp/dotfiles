@@ -24,17 +24,21 @@ set runtimepath+=/usr/local/opt/fzf
 packadd! matchit
 
 " Declare plugins
-if exists('*minpac#init')
-  call minpac#init()
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
-  call minpac#add('w0rp/ale', {'type': 'opt'})
-  call minpac#add('junegunn/fzf.vim')
-  call minpac#add('iawaknahc/vim-colorscheme-simple')
-  call minpac#add('iawaknahc/vim-synindent')
+if exists('*packager#init')
+  call packager#init()
+  call packager#add('kristijanhusak/vim-packager', {'type': 'opt'})
+  call packager#add('w0rp/ale', {'type': 'opt'})
+  call packager#add('junegunn/fzf')
+  call packager#add('junegunn/fzf.vim')
+  call packager#add('iawaknahc/vim-colorscheme-simple')
+  call packager#add('iawaknahc/vim-synindent')
 endif
-packadd! ale
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+silent! packadd! ale
+
+command! -bang PackUpdate packadd vim-packager | source $MYVIMRC | call packager#update({ 'force_hooks': '<bang>' })
+command! PackClean packadd vim-packager | source $MYVIMRC | call packager#clean()
+command! PackStatus packadd vim-packager | source $MYVIMRC | call packager#status()
 
 filetype plugin indent on
 syntax enable
