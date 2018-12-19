@@ -13,8 +13,8 @@ let g:ale_fixers['css']=['prettier']
 let g:ale_fixers['scss']=['prettier']
 let g:ale_lint_on_text_changed='never'
 let g:ale_linters={}
-let g:ale_linters['go']=['gofmt', 'golint', 'govet', 'golangserver']
 let g:ale_linters['typescript']=['tsserver', 'tslint']
+let g:ale_linters['go']=['golangserver', 'golint']
 let g:ale_completion_enabled=1
 
 " Activate plugins in other locations
