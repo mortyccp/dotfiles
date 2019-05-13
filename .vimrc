@@ -42,7 +42,7 @@ filetype on
 filetype plugin on
 
 " Look
-set laststatus=2 number ruler
+set laststatus=2 number relativenumber ruler
 set list listchars=tab:>-,trail:~
 " According to :h xterm-true-color
 " t_8f and t_8b are only set when $TERM is xterm*
