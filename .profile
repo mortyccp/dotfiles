@@ -16,8 +16,14 @@ if [ -d "$HOME/.gotfiles.git" ]; then
     git --git-dir="$HOME/.gotfiles.git" "$@"
   }
   function __gotfiles() {
+    local args=${COMP_WORDS[@]:1}
+
     ((COMP_CWORD += 1))
-    COMP_WORDS=(git --git-dir=$HOME/.gotfiles.git ${COMP_WORDS[@]:1})
+    COMP_WORDS=(git --git-dir=$HOME/.gotfiles.git $args)
+    ((COMP_POINT -= ${#COMP_LINE}))
+    COMP_LINE="git --git-dir=$HOME/.gotfiles.git $args"
+    ((COMP_POINT += ${#COMP_LINE}))
+
     __git_wrap__git_main
   }
   complete -o bashdefault -o default -o nospace -F __gotfiles gotfiles
