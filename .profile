@@ -27,8 +27,12 @@ fi
 if [ -x "$(command -v brew)" ]; then
   # bash specific
   if [ "$(basename "$SHELL")" = 'bash' ]; then
-    # enable bash completion
-    [ -f "$/usr/local/etc/bash_completion" ] && . "/usr/local/etc/bash_completion"
+    # Enable bash completion
+    # If bash-completion is >= 2, then we need to define BASH_COMPLETION_COMPAT_DIR
+    # in order to use existing completions.
+    # bash-completion@2 requires bash >= 4, use chsh to change login shell.export
+    BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+    [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
   fi
 fi
 
