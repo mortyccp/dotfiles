@@ -36,6 +36,14 @@ if [ -x "$(command -v brew)" ]; then
   fi
 fi
 
+# asdf
+if [ -r "$HOME"/.asdf/asdf.sh ]; then
+  . "$HOME"/.asdf/asdf.sh
+fi
+if [ -r "$HOME"/.asdf/completions/asdf.bash ]; then
+  . "$HOME"/.asdf/completions/asdf.bash
+fi
+
 # flutter
 if [ -d "$HOME/flutter" ]; then
   export PATH="$HOME/flutter/bin:$PATH"
