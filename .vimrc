@@ -30,7 +30,6 @@ if exists('*packager#init')
   call packager#add('w0rp/ale', {'type': 'opt'})
   call packager#add('junegunn/fzf')
   call packager#add('junegunn/fzf.vim')
-  call packager#add('iawaknahc/vim-colorscheme-simple')
   call packager#add('iawaknahc/vim-synindent')
 endif
 
@@ -41,12 +40,10 @@ command! PackClean packadd vim-packager | source $MYVIMRC | call packager#clean(
 command! PackStatus packadd vim-packager | source $MYVIMRC | call packager#status()
 
 filetype plugin indent on
-syntax enable
 
 " Look
 set laststatus=2 number ruler
 set list listchars=tab:>-,trail:~
-silent! colorscheme simple
 
 " Command completion
 set wildmenu wildmode=longest:full,full
