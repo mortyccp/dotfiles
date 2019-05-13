@@ -1,22 +1,22 @@
 # https://superuser.com/questions/544989/does-tmux-sort-the-path-variable
 if [ -f /etc/profile ]; then
-    PATH=""
-    source /etc/profile
+  PATH=""
+  source /etc/profile
 fi
 
-export VISUAL='vim'
+export VISUAL=vim
 export EDITOR="$VISUAL"
 export PS1="\[$(tput bold)\]$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export PS2="\[$(tput bold)\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
-export LC_ALL='en_US.UTF-8'
+export LC_ALL=en_US.UTF-8
 
 # gotfiles
 if [ -d "$HOME/.gotfiles.git" ]; then
   function gotfiles() {
-      git --git-dir="$HOME/.gotfiles.git" "$@"
+    git --git-dir="$HOME/.gotfiles.git" "$@"
   }
   function __gotfiles() {
-    ((COMP_CWORD+=1))
+    ((COMP_CWORD += 1))
     COMP_WORDS=(git --git-dir=$HOME/.gotfiles.git ${COMP_WORDS[@]:1})
     __git_wrap__git_main
   }
@@ -60,4 +60,3 @@ fi
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
-
