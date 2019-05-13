@@ -30,7 +30,7 @@ if exists('*packager#init')
   call packager#add('w0rp/ale', {'type': 'opt'})
   call packager#add('junegunn/fzf')
   call packager#add('junegunn/fzf.vim')
-  call packager#add('iawaknahc/vim-synindent')
+  call packager#add('tpope/vim-sleuth')
 endif
 
 silent! packadd! ale
@@ -39,7 +39,8 @@ command! -bang PackUpdate packadd vim-packager | source $MYVIMRC | call packager
 command! PackClean packadd vim-packager | source $MYVIMRC | call packager#clean()
 command! PackStatus packadd vim-packager | source $MYVIMRC | call packager#status()
 
-filetype plugin indent on
+filetype on
+filetype plugin on
 
 " Look
 set laststatus=2 number ruler
