@@ -43,10 +43,9 @@ elif [ -x "$(command -v rg)" ]; then
   export FZF_DEFAULT_COMMAND='rg --files'
 fi
 
-# gem
-if [ -x "$(command -v gem)" ]; then
-  export PATH="$(gem env gemdir)/bin:$PATH"
-fi
+# ruby/gem
+# ruby installed from brew is not symlinked to /usr/local/bin
+# See brew info ruby for more details.
 
 # golang
 if [ -d "$HOME/go" ]; then
