@@ -10,25 +10,6 @@ export PS1="\[$(tput bold)\]$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export PS2="\[$(tput bold)\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export LC_ALL=en_US.UTF-8
 
-# gotfiles
-if [ -d "$HOME/.gotfiles.git" ]; then
-  function gotfiles() {
-    git --git-dir="$HOME/.gotfiles.git" "$@"
-  }
-  function __gotfiles() {
-    local args=${COMP_WORDS[@]:1}
-
-    ((COMP_CWORD += 1))
-    COMP_WORDS=(git --git-dir=$HOME/.gotfiles.git $args)
-    ((COMP_POINT -= ${#COMP_LINE}))
-    COMP_LINE="git --git-dir=$HOME/.gotfiles.git $args"
-    ((COMP_POINT += ${#COMP_LINE}))
-
-    __git_wrap__git_main
-  }
-  complete -o bashdefault -o default -o nospace -F __gotfiles gotfiles
-fi
-
 # brew
 if [ -x "$(command -v brew)" ]; then
   # bash specific
